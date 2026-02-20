@@ -28,6 +28,11 @@ def edit_todo_action(request: Request, id: int, text: Annotated[str, Form()], db
     # Implement task 5.2 here. Remove the line below that says "pass" once complete
     pass
 
+@todo_router.get('/deleteTodo/{id}')
+def delete_todo_action(request: Request, id: int, db:SessionDep, user:AuthDep):
+    # Implement task 6.1 here. Remove the line below that says "pass" once complete
+    pass
+
 @todo_router.get('/editTodo/{id}')
 def edit_todo_page(request: Request, id: int, db:SessionDep, user:AuthDep):
     todo = db.exec(select(Todo).where(Todo.id == id, Todo.user_id == user.id)).one_or_none()
